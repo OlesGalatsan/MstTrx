@@ -1,14 +1,10 @@
 # MstTrx
 Testing TRX output from `Microsoft.Testing.Platform`.
 
-This works from a command line:
+If I run this from the command line:
 
 ```
-dotnet test
+dotnet test -- --filter-not-namespace 'MstTrx2*'
 ```
 
-But this fails:
-
-```
-dotnet test --report-trx
-```
+... then it reports a failure and creates a TRX file with no tests in it.
