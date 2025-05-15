@@ -35,6 +35,7 @@ jobs:
         name: Test report
         path: ./**/TestResults/*.trx
         reporter: dotnet-trx
+        use-actions-summary: 'false'
 
   build-new:
     runs-on: ubuntu-latest
