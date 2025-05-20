@@ -57,9 +57,18 @@ jobs:
       run: dotnet test --no-build --verbosity normal
 
     - name: Publish test report
-      uses: OlesGalatsan/test-reporter@bugfix/empty-trx-test-definitions
+      uses: OlesGalatsan/test-reporter@features/add-step-summary-short-summary
       with:
         name: Test report
         path: ./**/TestResults/*.trx
         reporter: dotnet-trx
         use-actions-summary: 'true'
+
+    - name: Publish test report
+      if: always()
+      uses: OlesGalatsan/test-reporter@features/add-step-summary-short-summary
+      with:
+        name: Test report
+        path: ./**/TestResults/*.trx
+        reporter: dotnet-trx
+        use-actions-summary: 'false'
